@@ -14,6 +14,7 @@ async function requireAuth(req, res, next) {
       return res.status(401).json({ error: 'Invalid token: user not found' });
     }
 
+    req.userId = payload.sub; // Attach user ID to the request
     req.user = user; // Attach the full user object to the request
     next();
   } catch (err) {

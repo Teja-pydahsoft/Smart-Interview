@@ -13,6 +13,10 @@ const INTERVIEWS = [
 
 router.get('/', requireAuth, async (req, res) => {
   const user = await User.findById(req.userId);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
   const userTags = new Set([...(user.profile?.tags || []), ...(user.profile?.interestedDomains || [])]);
   const hasCerts = (user.profile?.certifications || []).length > 0;
   const hasInterns = (user.profile?.internships || []).length > 0;
