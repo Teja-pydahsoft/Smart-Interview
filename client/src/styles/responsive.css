@@ -1,0 +1,153 @@
+/* responsive.css - Mobile-first responsive design */
+
+/* Base styles (mobile first) */
+:root {
+  --container-padding: 16px;
+  --card-border-radius: 8px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+}
+
+/* Global responsive container */
+.responsive-container {
+  width: 100%;
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Responsive grid system */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* Responsive cards */
+.responsive-card {
+  border-radius: var(--card-border-radius);
+  padding: var(--spacing-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive form elements */
+.responsive-form-group {
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+}
+
+.responsive-input,
+.responsive-select,
+.responsive-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Responsive buttons */
+.responsive-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Responsive tables */
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Responsive images and videos */
+.responsive-media {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hide elements on mobile */
+.hide-on-mobile {
+  display: none;
+}
+
+/* Tablet breakpoint (768px) */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 24px;
+  }
+  
+  .responsive-container {
+    max-width: 720px;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .responsive-button {
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .hide-on-mobile {
+    display: block;
+  }
+  
+  .hide-on-tablet {
+    display: none;
+  }
+  
+  /* Two-column layout for forms */
+  .responsive-form-row {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+  
+  .responsive-form-row .responsive-form-group {
+    flex: 1;
+  }
+}
+
+/* Desktop breakpoint (1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 32px;
+  }
+  
+  .responsive-container {
+    max-width: 960px;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .hide-on-tablet {
+    display: block;
+  }
+  
+  .hide-on-desktop {
+    display: none;
+  }
+  
+  /* Larger desktop (1200px+) */
+  @media (min-width: 1200px) {
+    .responsive-container {
+      max-width: 1140px;
+    }
+    
+    .responsive-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}

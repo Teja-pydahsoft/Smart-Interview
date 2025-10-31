@@ -1,0 +1,10 @@
+/* Reset Vite starter styles; Mantine provides its own */
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+/* Import responsive styles */
+@import './styles/responsive.css';
